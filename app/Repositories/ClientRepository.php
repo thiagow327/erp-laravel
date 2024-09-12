@@ -2,10 +2,10 @@
 
 namespace App\Repositories;
 
-use App\Repositories\Contracts\ClientRepositoryInterface;
+use App\Repositories\Contracts\RepositoryInterface;
 use App\Models\Client;
 
-class ClientRepository implements ClientRepositoryInterface
+class ClientRepository implements RepositoryInterface
 {
     protected $model;
 
