@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ClientService;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    protected $service;
+
+    public function __construct(ClientService $service)
+    {
+        $this->service = $service;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return $this->service->index();
     }
 
     /**
@@ -19,7 +26,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view('client.create');
     }
 
     /**
@@ -27,15 +34,17 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->service->create($request->all());
+
+        return redirect()->route('client.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id,)
     {
-        //
+        return view('client.show', ['client' => $this->service->show($id)]);
     }
 
     /**
@@ -43,7 +52,9 @@ class ClientController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $client = $this->service->findById($id);
+
+        return view('client.edit', compact('client'));
     }
 
     /**
@@ -51,7 +62,9 @@ class ClientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->service->update($request->all(), $id);
+
+        return redirect()->route('client.index');
     }
 
     /**
@@ -59,6 +72,8 @@ class ClientController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $this->service->destroy($id);
+
+        return redirect()->route('client.index');
     }
 }
