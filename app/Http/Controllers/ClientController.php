@@ -18,7 +18,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return $this->service->index();
+        $clients = $this->service->index();
+
+        return view('client.index', compact('clients'));
     }
 
     /**

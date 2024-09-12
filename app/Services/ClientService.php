@@ -13,6 +13,11 @@ class ClientService
         $this->model = new Client();
     }
 
+    public function findById(string $id)
+    {
+        return $this->model->findOrFail($id);
+    }
+
     public function index()
     {
         return $this->model->all();
