@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Client;
-use App\Policies\ClientPolicy;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\RepositoryInterface;
 use App\Repositories\ClientRepository;
@@ -11,10 +9,6 @@ use App\Services\ClientService;
 
 class AppServiceProvider extends ServiceProvider
 {
-    protected $policies = [
-        Client::class => ClientPolicy::class,
-    ];
-
     /**
      * Register any application services.
      */
@@ -38,6 +32,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->registerPolicies();
+        //
     }
 }
