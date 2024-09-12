@@ -2,50 +2,44 @@
 
 namespace App\Services;
 
-use App\Models\Client;
+use App\Repositories\Contracts\RepositoryInterface;
 
 class ClientService
 {
-    protected $model;
+    protected $repository;
 
-    public function __construct()
+    public function __construct(RepositoryInterface $repositoryInterface)
     {
-        $this->model = new Client();
+        $this->repository = $repositoryInterface;
     }
 
     public function findById(string $id)
     {
-        return $this->model->findOrFail($id);
+        return $this->repository->find($id);
     }
 
     public function index()
     {
-        return $this->model->all();
+        return $this->repository->all();
     }
 
     public function create(array $data)
     {
-        return $this->model->create($data);
+        return $this->repository->create($data);
     }
 
     public function show(string $id)
     {
-        return $this->model->findOrFail($id);
+        return $this->repository->find($id);
     }
 
     public function update(array $data, string $id)
     {
-        $client = $this->model->findOrFail($id);
-        $client->update($data);
-
-        return $client;
+        return $this->repository->update($id, $data);
     }
 
     public function destroy(string $id)
     {
-        $client = $this->model->findOrFail($id);
-        $client->delete();
-
-        return $client;
+        return $this->repository->delete($id);
     }
 }
