@@ -24,7 +24,9 @@ class ClientService
     }
 
     public function create(array $data)
-    {
+    {   
+        $this->authorize('create', Client::class);
+        
         return $this->repository->create($data);
     }
 
