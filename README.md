@@ -23,35 +23,35 @@ Este é um projeto simples de ERP desenvolvido com **Laravel** e **Laravel Breez
 1. Clone o repositório:
    
 
-```bash
+    ```bash
    git clone https://github.com/thiago/erp-laravel.git
    ```
 
 2. Instale as dependências:
     
 
-```bash
+    ```bash
     composer install
     ```
 
 3. Copie o arquivo `.env.example` para `.env` e configure as variáveis:
     
 
-```php
+    ```php
     cp .env.example .env
     ```
 
 4. Rode as migrações:
     
 
-```php
+    ```php
     php artisan migrate
     ```
 
 5. Inicie o servidor:
     
 
-```php
+    ```php
     php artisan serve
     ```
 
