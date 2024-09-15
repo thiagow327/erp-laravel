@@ -58,4 +58,3 @@ Este é um projeto simples de ERP desenvolvido com **Laravel** e **Laravel Breez
 ## Autores
 
 * [Thiago Gomes da Silva](https://github.com/thiagow327)
-"Essa versão simplificada destaca o essencial sobre o projeto, o que facilita a leitura e o entendimento rápido."
